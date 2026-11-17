@@ -110,7 +110,18 @@ class Reserva:
                 f"La duración de la reserva no es válida: {error}"
             ) from error
 
+        # Además de la validación realizada por el servicio,
+        # controlamos que una reserva no supere 24 horas.
+        if duracion_validada > 24:
 
+            registrar_error(
+                f"Duración excesiva en la reserva {codigo}: "
+                f"{duracion_validada} horas."
+            )
+
+            raise ReservaInvalidaError(
+                "La duración de una reserva no puede superar 24 horas."
+            )
         # Guardamos los datos cuando todas
         # las validaciones fueron correctas.
         self.codigo = str(
@@ -153,8 +164,8 @@ class Reserva:
             )
 
             raise OperacionNoPermitidaError(
-                "Una reserva cancelada no puede ser confirmada."
-            )
+                f"La reserva {self.codigo} está cancelada y no puede ser confirmada."
+)
 
 
         # Tampoco necesitamos confirmar dos veces
@@ -166,8 +177,8 @@ class Reserva:
             )
 
             raise OperacionNoPermitidaError(
-                "La reserva ya se encuentra confirmada."
-            )
+                f"La reserva {self.codigo} ya se encuentra confirmada."
+)
 
 
         # Antes de confirmar verificamos que
@@ -201,8 +212,8 @@ class Reserva:
             )
 
             raise OperacionNoPermitidaError(
-                "La reserva ya se encuentra cancelada."
-            )
+                f"La reserva {self.codigo} ya se encuentra cancelada."
+)
 
 
         self.estado = "Cancelada"
@@ -239,7 +250,18 @@ class Reserva:
                 raise OperacionNoPermitidaError(
                     "Una reserva cancelada no puede ser procesada."
                 )
+            
+            # Evitamos procesar nuevamente una reserva
+            # que ya terminó correctamente su proceso.
+            if self.estado == "Procesada":
 
+                registrar_error(
+                    f"Se intentó procesar nuevamente la reserva {self.codigo}."
+    )
+
+                raise OperacionNoPermitidaError(
+                    f"La reserva {self.codigo} ya fue procesada anteriormente."
+    )
 
             # Calculamos el costo usando el método
             # correspondiente al tipo de servicio.
@@ -280,10 +302,9 @@ class Reserva:
             # cuando no se produjo ninguna excepción.
             self.costo_total = total
 
-            # Si todavía estaba pendiente,
-            # pasa automáticamente a confirmada.
-            if self.estado == "Pendiente":
-                self.estado = "Confirmada"
+            # Cuando el cálculo termina correctamente,
+            # la reserva queda marcada como procesada.
+            self.estado = "Procesada"
 
 
             registrar_evento(
