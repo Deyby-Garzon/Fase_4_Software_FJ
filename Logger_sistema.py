@@ -1,6 +1,6 @@
 # Registro de errores y eventos del sistema
 
-# logging permite registrar automaticamente
+# logging permite registrar automáticamente
 # los eventos y errores del programa.
 import logging
 
@@ -10,18 +10,18 @@ from pathlib import Path
 
 
 # ==========================================================
-# CONFIGURACION DEL ARCHIVO DE LOGS
+# CONFIGURACIÓN DEL ARCHIVO DE LOGS
 # ==========================================================
 
-# Buscamos la carpeta donde esta este archivo
-# y definimos alli eventos.log.
+# Buscamos la carpeta donde está este archivo
+# y definimos allí eventos.log.
 ruta_log = (
     Path(__file__).resolve().parent
     / "eventos.log"
 )
 
 
-# Creamos el logger que utilizara todo el proyecto.
+# Creamos el logger que utilizará todo el proyecto.
 logger = logging.getLogger(
     "SoftwareFJ"
 )
@@ -32,17 +32,17 @@ logger.setLevel(
 
 
 # Evitamos crear varios manejadores si el archivo
-# se importa mas de una vez durante la ejecución.
+# se importa más de una vez durante la ejecución.
 if not logger.handlers:
 
-    # Este manejador se encargara de escribir
+    # Este manejador se encargará de escribir
     # dentro del archivo eventos.log.
     manejador_archivo = logging.FileHandler(
         ruta_log,
         encoding="utf-8"
     )
 
-    # Definimos como aparecera cada registro.
+    # Definimos cómo aparecerá cada registro.
     formato = logging.Formatter(
         "%(asctime)s | %(levelname)s | %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S"
@@ -68,7 +68,7 @@ logger.propagate = False
 
 def registrar_evento(mensaje):
     # Guarda eventos normales del programa,
-    # por ejemplo la creacion correcta de un cliente.
+    # por ejemplo la creación correcta de un cliente.
     logger.info(
         mensaje
     )
@@ -84,3 +84,4 @@ def registrar_error(mensaje):
     logger.error(
         mensaje
     )
+    

@@ -2,6 +2,7 @@
 
 # Estas excepciones nos permiten identificar diferentes
 # tipos de errores dentro del programa sin cerrar
+# completamente la aplicación.
 # completamente la aplicacion.
 
 
@@ -25,23 +26,23 @@ class ServicioInvalidoError(Exception):
 
 class ServicioNoDisponibleError(Exception):
     # Se utiliza cuando alguien intenta utilizar
-    # un servicio que no esta disponible.
+    # un servicio que no está disponible.
     pass
 
 
 class DuracionInvalidaError(Exception):
-    # Se utiliza cuando la duracion de un servicio
+    # Se utiliza cuando la duración de un servicio
     # es incorrecta.
     pass
 
 
 class ReservaInvalidaError(Exception):
-    # Esta excepcion se utilizara posteriormente
+    # Esta excepción se utilizará posteriormente
     # cuando trabajemos con las reservas.
     pass
 
 
 class OperacionNoPermitidaError(Exception):
-    # Se utiliza cuando se intenta realizar una accion
-    # que no esta permitida dentro del sistema.
+    # Se utiliza cuando se intenta realizar una acción
+    # que no está permitida dentro del sistema.
     pass
