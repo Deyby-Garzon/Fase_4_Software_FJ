@@ -3,6 +3,7 @@
 # Estas excepciones nos permiten identificar diferentes
 # tipos de errores dentro del programa sin cerrar
 # completamente la aplicación.
+# completamente la aplicacion.
 
 
 class DatoInvalidoError(Exception):
