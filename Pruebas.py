@@ -263,3 +263,122 @@ def prueba_6():
     sistema.registrar_servicio(
         servicio_repetido
     )
+
+# ==========================================================
+# PRUEBA 7 - RESERVA VÁLIDA
+# ==========================================================
+
+def prueba_7():
+
+    # Utilizamos el cliente 1001 y el servicio S001
+    # que fueron registrados anteriormente.
+    reserva = sistema.crear_reserva(
+        "R001",
+        "1001",
+        "S001",
+        2
+    )
+
+    print(
+        reserva.mostrar_informacion()
+    )
+
+
+# ==========================================================
+# PRUEBA 8 - CLIENTE INEXISTENTE EN UNA RESERVA
+# ==========================================================
+
+def prueba_8():
+
+    # La identificación 9999 no está registrada.
+    sistema.crear_reserva(
+        "R002",
+        "9999",
+        "S001",
+        2
+    )
+
+
+# ==========================================================
+# PRUEBA 9 - DURACIÓN NEGATIVA
+# ==========================================================
+
+def prueba_9():
+
+    # Una reserva no puede tener duración negativa.
+    sistema.crear_reserva(
+        "R003",
+        "1001",
+        "S002",
+        -3
+    )
+
+
+# ==========================================================
+# PRUEBA 10 - DURACIÓN MAYOR A 24 HORAS
+# ==========================================================
+
+def prueba_10():
+
+    # Esta validación fue agregada posteriormente
+    # para evitar reservas superiores a 24 horas.
+    sistema.crear_reserva(
+        "R004",
+        "1001",
+        "S003",
+        30
+    )
+
+
+# ==========================================================
+# PRUEBA 11 - PROCESAR RESERVA CORRECTAMENTE
+# ==========================================================
+
+def prueba_11():
+
+    # Recuperamos la reserva válida creada
+    # anteriormente.
+    reserva = sistema.buscar_reserva(
+        "R001"
+    )
+
+
+    # Procesamos la reserva aplicando
+    # un impuesto y un descuento.
+    total = reserva.procesar(
+        impuesto=10,
+        descuento=5
+    )
+
+
+    print(
+        f"Total calculado correctamente: ${total:.2f}"
+    )
+
+    print(
+        f"Estado final: {reserva.estado}"
+    )
+
+
+# ==========================================================
+# PRUEBA 12 - PROCESAR RESERVA CANCELADA
+# ==========================================================
+
+def prueba_12():
+
+    # Creamos una nueva reserva válida.
+    reserva = sistema.crear_reserva(
+        "R005",
+        "1001",
+        "S002",
+        3
+    )
+
+
+    # Primero la cancelamos.
+    reserva.cancelar()
+
+
+    # Luego intentamos procesarla.
+    # Esta operación debe producir un error controlado.
+    reserva.procesar()
