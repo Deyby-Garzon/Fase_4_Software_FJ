@@ -454,3 +454,83 @@ def ejecutar_todas_las_pruebas():
         prueba_6,
         ServicioInvalidoError
     )
+
+    # ------------------------------------------------------
+    # PRUEBAS DE RESERVAS
+    # ------------------------------------------------------
+
+    ejecutar_prueba(
+        7,
+        "Crear una reserva válida",
+        prueba_7
+    )
+
+
+    ejecutar_prueba(
+        8,
+        "Crear reserva con cliente inexistente",
+        prueba_8,
+        ClienteInvalidoError
+    )
+
+
+    ejecutar_prueba(
+        9,
+        "Crear reserva con duración negativa",
+        prueba_9,
+        ReservaInvalidaError
+    )
+
+
+    ejecutar_prueba(
+        10,
+        "Crear reserva superior a 24 horas",
+        prueba_10,
+        ReservaInvalidaError
+    )
+
+
+    ejecutar_prueba(
+        11,
+        "Procesar una reserva correctamente",
+        prueba_11
+    )
+
+
+    ejecutar_prueba(
+        12,
+        "Intentar procesar una reserva cancelada",
+        prueba_12,
+        ReservaInvalidaError
+    )
+
+
+    # ------------------------------------------------------
+    # RESUMEN FINAL
+    # ------------------------------------------------------
+
+    print(
+        "\n**********************************************"
+    )
+
+    print(
+        "              FIN DE LAS PRUEBAS"
+    )
+
+    print(
+        "**********************************************"
+    )
+
+    print(
+        "\nRevise también eventos.log para comprobar "
+        "el registro de eventos y errores."
+    )
+
+
+# ==========================================================
+# INICIO DE LAS PRUEBAS
+# ==========================================================
+
+if __name__ == "__main__":
+
+    ejecutar_todas_las_pruebas()
