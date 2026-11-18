@@ -165,6 +165,19 @@ class SistemaSoftwareFJ:
         self,
         servicio
     ):
+        # Verificamos que el objeto recibido corresponda
+        # realmente a uno de los servicios del sistema.
+        if not isinstance(
+            servicio,
+            (ReservaSala, AlquilerEquipo, AsesoriaEspecializada)
+        ):
+            registrar_error(
+                "Se intentó registrar un objeto que no es un servicio válido."
+            )
+
+            raise ServicioInvalidoError(
+                "El objeto recibido no corresponde a un servicio válido."
+            )
 
         # Verificamos que no exista otro servicio
         # con el mismo código.
@@ -715,6 +728,10 @@ def opcion_confirmar_reserva(
 
     if reserva is None:
 
+        registrar_error(
+        f"Se intentó confirmar una reserva inexistente: {codigo}"
+    )
+
         raise ReservaInvalidaError(
             f"No existe la reserva {codigo}."
         )
@@ -756,6 +773,10 @@ def opcion_procesar_reserva(
 
 
     if reserva is None:
+
+        registrar_error(
+        f"Se intentó procesar una reserva inexistente: {codigo}"
+    )
 
         raise ReservaInvalidaError(
             f"No existe la reserva {codigo}."
@@ -814,6 +835,10 @@ def opcion_cancelar_reserva(
 
 
     if reserva is None:
+
+        registrar_error(
+        f"Se intentó cancelar una reserva inexistente: {codigo}"
+    )
 
         raise ReservaInvalidaError(
             f"No existe la reserva {codigo}."
@@ -952,6 +977,12 @@ def ejecutar_programa():
 
 
             else:
+
+                # Guardamos también las opciones incorrectas
+                # para tener un registro más completo del uso del sistema.
+                registrar_error(
+                    f"Opción de menú no válida: {opcion}"
+                )
 
                 print(
                     "\nOpción no válida. Intente nuevamente."
