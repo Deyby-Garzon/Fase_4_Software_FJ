@@ -12,11 +12,11 @@ import re
 
 # Importamos las excepciones que vamos a utilizar
 # para controlar datos incorrectos.
-from excepciones import DatoInvalidoError, ClienteInvalidoError
+from Excepciones import DatoInvalidoError, ClienteInvalidoError
 
 # Estas funciones permiten guardar en el archivo de logs
 # los eventos correctos y los errores encontrados.
-from logger_sistema import registrar_evento, registrar_error
+from Logger_sistema import registrar_evento, registrar_error
 
 
 # ==========================================================
