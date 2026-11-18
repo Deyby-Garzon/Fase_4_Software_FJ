@@ -382,3 +382,75 @@ def prueba_12():
     # Luego intentamos procesarla.
     # Esta operación debe producir un error controlado.
     reserva.procesar()
+
+# ==========================================================
+# EJECUCIÓN DE LAS 12 PRUEBAS
+# ==========================================================
+
+def ejecutar_todas_las_pruebas():
+
+    print(
+        "\n**********************************************"
+    )
+
+    print(
+        "       PRUEBAS DEL SISTEMA SOFTWARE FJ"
+    )
+
+    print(
+        "**********************************************"
+    )
+
+
+    # ------------------------------------------------------
+    # PRUEBAS DE CLIENTES
+    # ------------------------------------------------------
+
+    ejecutar_prueba(
+        1,
+        "Registrar cliente válido",
+        prueba_1
+    )
+
+
+    ejecutar_prueba(
+        2,
+        "Registrar cliente con correo inválido",
+        prueba_2,
+        ClienteInvalidoError
+    )
+
+
+    ejecutar_prueba(
+        3,
+        "Intentar registrar un cliente repetido",
+        prueba_3,
+        ClienteInvalidoError
+    )
+
+
+    # ------------------------------------------------------
+    # PRUEBAS DE SERVICIOS
+    # ------------------------------------------------------
+
+    ejecutar_prueba(
+        4,
+        "Registrar los tres tipos de servicios",
+        prueba_4
+    )
+
+
+    ejecutar_prueba(
+        5,
+        "Crear servicio con precio inválido",
+        prueba_5,
+        ServicioInvalidoError
+    )
+
+
+    ejecutar_prueba(
+        6,
+        "Intentar registrar un servicio repetido",
+        prueba_6,
+        ServicioInvalidoError
+    )
