@@ -4,15 +4,15 @@
 
 # Importamos Cliente para comprobar que una reserva
 # tenga un cliente válido registrado en el sistema.
-from entidades import Cliente
+from Entidades import Cliente
 
 # Servicio es la clase base de los diferentes servicios
 # que puede reservar un cliente.
-from servicios import Servicio
+from Servicios import Servicio
 
 # Importamos las excepciones que utilizaremos
 # para controlar problemas relacionados con reservas.
-from excepciones import (
+from Excepciones import (
     ReservaInvalidaError,
     DuracionInvalidaError,
     ServicioNoDisponibleError,
@@ -22,7 +22,7 @@ from excepciones import (
 
 # Estas funciones permiten guardar en eventos.log
 # lo que ocurre durante el manejo de las reservas.
-from logger_sistema import (
+from Logger_sistema import (
     registrar_evento,
     registrar_error
 )

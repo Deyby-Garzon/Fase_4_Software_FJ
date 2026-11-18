@@ -1,0 +1,29 @@
+2026-11-17 20:31:38 | INFO | Sistema Software FJ iniciado correctamente.
+2026-11-17 20:31:38 | INFO | Cliente creado correctamente: 1001 - Daniela Briceño
+2026-11-17 20:31:38 | INFO | Cliente agregado al sistema: 1001
+2026-11-17 20:31:38 | ERROR | Correo inválido: correo_incorrecto
+2026-11-17 20:31:38 | ERROR | Error al crear cliente: El correo electrónico no tiene un formato válido.
+2026-11-17 20:31:38 | ERROR | Cliente repetido: 1001
+2026-11-17 20:31:38 | INFO | Servicio creado: S001 - Sala Principal
+2026-11-17 20:31:38 | INFO | Servicio agregado al sistema: S001
+2026-11-17 20:31:38 | INFO | Servicio creado: S002 - Alquiler Portátil
+2026-11-17 20:31:38 | INFO | Servicio agregado al sistema: S002
+2026-11-17 20:31:38 | INFO | Servicio creado: S003 - Asesoría de Software
+2026-11-17 20:31:38 | INFO | Servicio agregado al sistema: S003
+2026-11-17 20:31:38 | ERROR | Precio inválido para el servicio: precio_invalido
+2026-11-17 20:31:38 | INFO | Servicio creado: S001 - Otra Sala
+2026-11-17 20:31:38 | ERROR | Servicio repetido: S001
+2026-11-17 20:31:38 | INFO | Reserva creada: R001 | Cliente: Daniela Briceño | Servicio: Sala Principal
+2026-11-17 20:31:38 | INFO | Reserva agregada al sistema: R001
+2026-11-17 20:31:38 | ERROR | Cliente no encontrado: 9999
+2026-11-17 20:31:38 | ERROR | Duración no permitida: -3.0
+2026-11-17 20:31:38 | ERROR | No fue posible crear la reserva R003: La duración debe ser mayor que cero.
+2026-11-17 20:31:38 | ERROR | Duración excesiva en la reserva R004: 30.0 horas.
+2026-11-17 20:31:38 | INFO | Costo calculado para reserva de sala S001: $104500.00
+2026-11-17 20:31:38 | INFO | Reserva procesada correctamente: R001 | Total: $104500.00
+2026-11-17 20:31:38 | INFO | Finalizó el intento de procesamiento de la reserva R001.
+2026-11-17 20:31:38 | INFO | Reserva creada: R005 | Cliente: Daniela Briceño | Servicio: Alquiler Portátil
+2026-11-17 20:31:38 | INFO | Reserva agregada al sistema: R005
+2026-11-17 20:31:38 | INFO | Reserva cancelada: R005
+2026-11-17 20:31:38 | ERROR | Error al procesar reserva R005: Una reserva cancelada no puede ser procesada.
+2026-11-17 20:31:38 | INFO | Finalizó el intento de procesamiento de la reserva R005.
